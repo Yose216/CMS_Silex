@@ -13,6 +13,10 @@ body {
 	margin-bottom: 0px;
 }
 
+.footer a {
+	color: black;
+}
+
 .articleTitle:hover, .articleTitle:focus, .navbar-brand:hover {
     text-decoration: none;
 	color: chocolate!important;
