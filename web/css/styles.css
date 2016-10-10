@@ -1,0 +1,20 @@
+body { 
+    padding-top: 50px; 
+}
+
+.footer {
+    border-top: 1px solid black;
+	background-color: chocolate;
+    text-align: center;
+/*	margin-top: 195px;*/
+}
+
+.footer p {
+	margin-bottom: 0px;
+}
+
+.articleTitle:hover, .articleTitle:focus, .navbar-brand:hover {
+    text-decoration: none;
+	color: chocolate!important;
+}
+
