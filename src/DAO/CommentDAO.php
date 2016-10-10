@@ -11,8 +11,17 @@ class CommentDAO extends DAO
      */
     private $articleDAO;
 
+    /**
+     * @var \cms\DAO\UserDAO
+     */
+    private $userDAO;
+
     public function setArticleDAO(ArticleDAO $articleDAO) {
         $this->articleDAO = $articleDAO;
+    }
+
+    public function setUserDAO(UserDAO $userDAO) {
+        $this->userDAO = $userDAO;
     }
 
     /**
@@ -28,7 +37,7 @@ class CommentDAO extends DAO
 
         // art_id is not selected by the SQL query
         // The article won't be retrieved during domain objet construction
-        $sql = "select com_id, com_content, com_author from t_comment where art_id=? order by com_id";
+        $sql = "select com_id, com_content, usr_id from t_comment where art_id=? order by com_id";
         $result = $this->getDb()->fetchAll($sql, array($articleId));
 
         // Convert query result to an array of domain objects
@@ -53,7 +62,6 @@ class CommentDAO extends DAO
         $comment = new Comment();
         $comment->setId($row['com_id']);
         $comment->setContent($row['com_content']);
-        $comment->setAuthor($row['com_author']);
 
         if (array_key_exists('art_id', $row)) {
             // Find and set the associated article
@@ -61,7 +69,37 @@ class CommentDAO extends DAO
             $article = $this->articleDAO->find($articleId);
             $comment->setArticle($article);
         }
+        if (array_key_exists('usr_id', $row)) {
+            // Find and set the associated author
+            $userId = $row['usr_id'];
+            $user = $this->userDAO->find($userId);
+            $comment->setAuthor($user);
+        }
         
         return $comment;
+    }
+	
+	 /**
+     * Saves a comment into the database.
+     *
+     * @param \cms\Domain\Comment $comment The comment to save
+     */
+    public function save(Comment $comment) {
+        $commentData = array(
+            'art_id' => $comment->getArticle()->getId(),
+            'usr_id' => $comment->getAuthor()->getId(),
+            'com_content' => $comment->getContent()
+            );
+
+        if ($comment->getId()) {
+            // The comment has already been saved : update it
+            $this->getDb()->update('t_comment', $commentData, array('com_id' => $comment->getId()));
+        } else {
+            // The comment has never been saved : insert it
+            $this->getDb()->insert('t_comment', $commentData);
+            // Get the id of the newly created comment and set it on the entity.
+            $id = $this->getDb()->lastInsertId();
+            $comment->setId($id);
+        }
     }
 }

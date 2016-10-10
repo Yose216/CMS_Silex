@@ -20,7 +20,29 @@
 				</button>
 				<a class="navbar-brand" href="{{ path('home') }}">CMS Youness</a>
 			</div>
-			<div class="collapse navbar-collapse" id="navbar-collapse-target"></div>
+			<div class="collapse navbar-collapse" id="navbar-collapse-target">
+				<ul class="nav navbar-nav navbar-right">
+                    {% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li class="dropdown">
+                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            	<span class="glyphicon glyphicon-user"></span> Welcome, {{ app.user.username }} <b class="caret"></b>
+							</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('logout') }}">Log out</a></li>
+                            </ul>
+                        </li>
+                        {% else %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user"></span> Not connected <b class="caret"></b>
+							</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('login') }}">Log in</a></li>
+                            </ul>
+                        </li>
+                	{% endif %}
+                </ul>
+			</div>
 		</nav>
 		
 		<div class="container-fluid">
@@ -30,5 +52,10 @@
 				<p><a href="https://github.com/Yose216/CMS_Silex" target="_blank">CMS Youness</a> is a minimalistic CMS develop by Yose.</p>
 			</footer>
 		</div>
+	
+	<!-- jQuery -->
+    <script src="{{ app.request.basepath }}/lib/jquery/jquery.min.js"></script>
+    <!-- JavaScript Boostrap plugin -->
+    <script src="{{ app.request.basepath }}/lib/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>
