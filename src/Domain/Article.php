@@ -26,6 +26,13 @@ class Article
      * @var string
      */
     private $content;
+	
+	/**
+     * Article image.
+     *
+     * @var string
+     */
+    private $image;
 
     public function getId() {
         return $this->id;
@@ -49,6 +56,14 @@ class Article
 	
     public function setContent($content) {
         $this->content = $content;
+    }
+	
+	public function getImage() {
+        return $this->image;
+    }
+	
+    public function setImage($image) {
+        $this->image = $image;
     }
 
 }

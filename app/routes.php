@@ -49,3 +49,7 @@ $app->get('/newpwd', function() use ($app) {
     $encoder = $app['security.encoder.digest'];
     return $encoder->encodePassword($rawPassword, $salt);
 });
+
+$app->get('/web/images/Articles', function(Request $request) use ($app) {
+	
+});

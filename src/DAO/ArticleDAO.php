@@ -57,6 +57,7 @@ class ArticleDAO extends DAO
         $articleData = array(
             'art_title' => $article->getTitle(),
             'art_content' => $article->getContent(),
+			'art_image' => $article->getImage(),
             );
 
         if ($article->getId()) {
