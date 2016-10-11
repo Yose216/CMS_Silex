@@ -1,29 +1,59 @@
-body { 
-    padding-top: 50px; 
+body {
+	background-color: #FBFAFA!important;
+}
+
+header {
+	padding: 0 0 15px 15px;
+}
+
+header h1 {
+	color: #A81515;
+	font-size: 50px!important;
+}
+
+header p {
+	color: dimgrey!important;
+	font-size: 14px!important;
+	letter-spacing: 2px;
+	padding-left: 1em;
+}
+
+.navbar-inverse {
+	background-color: black!important;
 }
 
 .footer {
     border-top: 1px solid black;
-	background-color: chocolate;
+	background-color: black;
     text-align: center;
-/*	margin-top: 195px;*/
 }
 
+/*
 .footer p {
 	margin-bottom: 0px;
 }
+*/
 
 .footer a {
-	color: black;
+	color: darkgray;
 }
 
 .articleTitle:hover, .articleTitle:focus, .navbar-brand:hover {
     text-decoration: none;
-	color: chocolate!important;
+	color: dimgrey!important;
+}
+
+.articleTitre, .comment, .articleTitle {
+	color: #A81515!important;
 }
 
 .adminTable {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+#errorPanel {
+    padding-top: 30px;
+    padding-bottom: 10px;
 }
 

@@ -10,15 +10,18 @@
 	</head>
 	
 	<body>
-		
-		<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+		<header>
+			<h1>GOMORRA FANPAGE</h1>
+			<p>Le blog qui parle Gomorra</p>
+		</header>
+		<nav class="navbar navbar-default navbar-inverse" role="navigation">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-target">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ path('home') }}">CMS Youness</a>
+				<a class="navbar-brand" href="{{ path('home') }}">Home</a>
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse-target">
 				<ul class="nav navbar-nav navbar-right">
@@ -51,7 +54,7 @@
 		<div class="container-fluid">
 			<div id="content">{% block content %}{% endblock %}</div>
 	
-			<footer class="footer">
+			<footer class="footer col-lg-12">
 				<p><a href="https://github.com/Yose216/CMS_Silex" target="_blank">CMS Youness</a> is a minimalistic CMS develop by Yose.</p>
 			</footer>
 		</div>
