@@ -26,6 +26,7 @@ header p {
     border-top: 1px solid black;
 	background-color: black;
     text-align: center;
+	margin-top: 20px;
 }
 
 /*
@@ -43,7 +44,7 @@ header p {
 	color: dimgrey!important;
 }
 
-.articleTitre, .comment, .articleTitle {
+.articleTitre, .comment, .addComment, .articleTitle {
 	color: #A81515!important;
 }
 
@@ -55,5 +56,52 @@ header p {
 #errorPanel {
     padding-top: 30px;
     padding-bottom: 10px;
+}
+
+.imgIndex, .imgArticle {
+	height: 400px!important;
+}
+
+/*
+.imgArticle {
+	padding-bottom: 5em;
+}
+*/
+
+.contentArticle {
+	padding-top: 2.5em!important;
+}
+
+.articleTitre {
+	padding-bottom: 0.6em;
+}
+
+.footerIndexAricle {
+	border-top: 1.5px solid black;
+	border-bottom: 4px solid black;
+	padding-top: 1em;
+	margin-top: 1em;
+	margin-bottom: 2em;
+}
+
+.footerIndexAricle p {
+	color: dimgrey!important;
+}
+
+.followMe {
+	margin-top: 2em;
+}
+
+.followMe h3 {
+	border-top: 1px solid black;
+	border-bottom: 4px solid black;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 3.1em;
+/*	font-weight: bolder;*/
+}
+
+.comment {
+
 }
 

@@ -11,7 +11,7 @@
 </div>
 {% endfor %}
 
-<div class="well">
+<div class="well col-lg-offset-0 col-lg-9 col-lg-offset-3">
 {{ form_start(articleForm, { 'attr': {'class': 'form-horizontal'} }) }}
     <div class="form-group">
         {{ form_label(articleForm.title, null, { 'label_attr':  {
@@ -34,6 +34,15 @@
                 'class': 'form-control',
                 'rows': '8'
             }}) }}
+        </div>
+    </div>
+	<div class="form-group">
+        {{ form_label(articleForm.image, null, { 'label_attr':  {
+            'class': 'col-sm-4 control-label'
+        }}) }}
+        <div class="col-sm-6">
+            {{ form_errors(articleForm.image) }}
+            {{ form_widget(articleForm.image) }}
         </div>
     </div>
     <div class="form-group">

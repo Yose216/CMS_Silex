@@ -4,6 +4,8 @@ namespace cms\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
 use cms\Domain\Article;
 use cms\Domain\User;
 use cms\Form\Type\ArticleType;
@@ -37,6 +39,17 @@ class AdminController {
         $article = new Article();
         $articleForm = $app['form.factory']->create(new ArticleType(), $article);
         $articleForm->handleRequest($request);
+		if ($request->isMethod('POST')) {
+			if ($articleForm->isValid()) {
+				$files = $request->files->get($articleForm->getName());
+				/* Make sure that Upload Directory is properly configured and writable */
+				$path = __DIR__.'/../../web/images/Articles/';
+				$filename = $files['image']->getClientOriginalName();
+				$files['image']->move($path,$filename);
+
+				$message = 'File was successfully uploaded!';
+			}
+    	}
         if ($articleForm->isSubmitted() && $articleForm->isValid()) {
             $app['dao.article']->save($article);
             $app['session']->getFlashBag()->add('success', 'The article was successfully created.');
@@ -57,6 +70,17 @@ class AdminController {
         $article = $app['dao.article']->find($id);
         $articleForm = $app['form.factory']->create(new ArticleType(), $article);
         $articleForm->handleRequest($request);
+		if ($request->isMethod('POST')) {
+			if ($articleForm->isValid()) {
+				$files = $request->files->get($articleForm->getName());
+				/* Make sure that Upload Directory is properly configured and writable */
+				$path = __DIR__.'/../../web/images/Articles/';
+				$filename = $files['image']->getClientOriginalName();
+				$files['image']->move($path,$filename);
+
+				$message = 'File was successfully uploaded!';
+			}
+    	}
         if ($articleForm->isSubmitted() && $articleForm->isValid()) {
             $app['dao.article']->save($article);
             $app['session']->getFlashBag()->add('success', 'The article was succesfully updated.');
@@ -184,4 +208,6 @@ class AdminController {
         // Redirect to admin home page
         return $app->redirect($app['url_generator']->generate('admin'));
     }
+	
+	
 }

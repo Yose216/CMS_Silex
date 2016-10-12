@@ -55,6 +55,7 @@ class ArticleDAO extends DAO
      * @param \cms\Domain\Article $article The article to save
      */
     public function save(Article $article) {
+		
         $articleData = array(
             'art_title' => $article->getTitle(),
             'art_content' => $article->getContent(),
