@@ -4,8 +4,7 @@ namespace cms\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\File\File;
+
 use cms\Domain\Article;
 use cms\Domain\User;
 use cms\Form\Type\ArticleType;
@@ -41,11 +40,12 @@ class AdminController {
         $articleForm->handleRequest($request);
 		if ($request->isMethod('POST')) {
 			if ($articleForm->isValid()) {
-				$files = $request->files->get($articleForm->getName());
+				$image = $request->files->get($articleForm->getName());
 				/* Make sure that Upload Directory is properly configured and writable */
 				$path = __DIR__.'/../../web/images/Articles/';
-				$filename = $files['image']->getClientOriginalName();
-				$files['image']->move($path,$filename);
+				$filename = $image['image']->getClientOriginalName();
+				$image['image']->move($path,$filename);
+				$article->setImage($filename);
 
 				$message = 'File was successfully uploaded!';
 			}
@@ -77,7 +77,7 @@ class AdminController {
 				$path = __DIR__.'/../../web/images/Articles/';
 				$filename = $files['image']->getClientOriginalName();
 				$files['image']->move($path,$filename);
-
+				$article->setImage($filename);
 				$message = 'File was successfully uploaded!';
 			}
     	}
@@ -87,8 +87,8 @@ class AdminController {
         }
         return $app['twig']->render('article_form.html.twig', array(
             'title' => 'Edit article',
-            'articleForm' => $articleForm->createView()));
-    }
+            'articleForm' => $articleForm->createView()));	
+   }
 
     /**
      * Delete article controller.

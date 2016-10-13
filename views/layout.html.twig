@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="{{ app.request.basepath }}/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="{{ app.request.basepath }}/lib/Font-awesome/css/font-awesome.css" rel="stylesheet">
 		<link href="{{ app.request.basepath }}/css/styles.css" rel="stylesheet">
 		<title>CMS Youness - {% block title %}{% endblock %}</title>
 	</head>
@@ -44,6 +45,7 @@
 							</a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ path('login') }}">Log in</a></li>
+								<li><a href="{{ path('inscription') }}">Inscription</a></li>
                             </ul>
                         </li>
                 	{% endif %}
@@ -54,9 +56,12 @@
 		<div class="container-fluid">
 			<div class="followMe col-lg-3 pull-right col-xs-12">
 				<h3>SEARCH</h3>
-				<p>The search coming soon!</p>
+				<form>
+					<input type="search"/>
+					<input type="button" value="Search">
+				</form>
 				<h3>FOLLOW ME</h3>
-				<p>Social media coming soon!</p>
+				<a href="https://twitter.com/Youness_Chetoui" title="Twitter"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
 			</div>
 			
 			<div id="content">{% block content %}{% endblock %}</div>

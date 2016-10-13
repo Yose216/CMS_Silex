@@ -5,7 +5,9 @@
 {% block content %}
 <div class="col-lg-offset-0 col-lg-9 col-lg-offset-3">
 	<p>
-		<h2 class="articleTitre col-lg-7 col-lg-offset-4">{{ article.title }}</h2>
+		<center>	
+			<h2 class="articleTitre">{{ article.title }}</h2>
+		</center>
 		<img src="{{ app.request.basepath }}/images/Articles/{{ article.image }}" class="img-responsive col-lg-offset-1 co-lg-10 imgArticle" alt="Error ghost"/>
 		<p class="col-lg-12 contentArticle">{{ article.content }}</p>
 		

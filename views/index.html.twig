@@ -5,11 +5,17 @@
 {% block content %}
 {% for article in articles %}
 <article class="col-lg-offset-0 col-lg-9 col-lg-offset-3">
-    <h2><a class="articleTitle col-lg-offset-5" href="{{ path('article', { 'id': article.id }) }}">{{ article.title }}</a></h2>
-    <img src="{{ app.request.basepath }}/images/Articles/{{ article.image }}" class="col-lg-10 col-lg-offset-1 img-responsive imgIndex" alt="Error ghost"/>
+    <center>
+		<h2>
+			<a class="articleTitle" href="{{ path('article', { 'id': article.id }) }}">{{ article.title }}</a>
+		</h2>
+	</center>
+    <img src="{{ app.request.basepath }}/images/Articles/{{ article.image }}" class="col-lg-offset-1 col-lg-10  img-responsive imgIndex" alt="Error ghost"/>
+	
 	<div class=" col-lg-offset-1 col-lg-10 footerIndexAricle">
 		<p class="col-lg-offset-5">Tag for article coming soon!</p>	
 	</div>
 </article>
 {% endfor %}
 {% endblock %}
+

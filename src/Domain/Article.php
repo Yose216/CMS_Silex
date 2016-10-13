@@ -59,7 +59,6 @@ class Article
     }
 	
 	public function getImage() {
-
         return $this->image;
     }
 	

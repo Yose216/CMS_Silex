@@ -3,12 +3,17 @@ body {
 }
 
 header {
-	padding: 0 0 15px 15px;
+	padding: 30px 30px 15px 15px;
+	background-image: url('../images/head.png');
+/*	background-position: top;*/
+	background-size: cover;
+/*	background-repeat: no-repeat;*/
 }
 
 header h1 {
 	color: #A81515;
 	font-size: 50px!important;
+	margin-top: 0px!important;
 }
 
 header p {
@@ -28,12 +33,6 @@ header p {
     text-align: center;
 	margin-top: 20px;
 }
-
-/*
-.footer p {
-	margin-bottom: 0px;
-}
-*/
 
 .footer a {
 	color: darkgray;
@@ -59,14 +58,8 @@ header p {
 }
 
 .imgIndex, .imgArticle {
-	height: 400px!important;
+	height: 450px!important;
 }
-
-/*
-.imgArticle {
-	padding-bottom: 5em;
-}
-*/
 
 .contentArticle {
 	padding-top: 2.5em!important;
@@ -98,10 +91,10 @@ header p {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	padding-left: 3.1em;
-/*	font-weight: bolder;*/
 }
 
-.comment {
-
+.imgIndex {
+	padding-top: 15px!important;
+	padding-bottom: 15px!important;
 }
 
