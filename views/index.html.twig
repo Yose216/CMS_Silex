@@ -10,7 +10,7 @@
 			<a class="articleTitle" href="{{ path('article', { 'id': article.id }) }}">{{ article.title }}</a>
 		</h2>
 	</center>
-    <img src="{{ app.request.basepath }}/images/Articles/{{ article.image }}" class="col-lg-offset-1 col-lg-10  img-responsive imgIndex" alt="Error ghost"/>
+    <img src="{{ app.request.basepath }}/images/Articles/{{ article.image }}" class="col-lg-offset-1 col-lg-10  img-responsive imgIndex" alt="{{ article.image }}"/>
 	
 	<div class=" col-lg-offset-1 col-lg-10 footerIndexAricle">
 		<p class="col-lg-offset-5">Tag for article coming soon!</p>	

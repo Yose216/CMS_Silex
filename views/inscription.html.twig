@@ -1,4 +1,4 @@
-{% extends 'layout.html.twig' %}
+{% extends 'layout_admin.html.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
 
@@ -15,7 +15,7 @@
 </div>
 {% endif %}
 
-<div class="well col-lg-offset-0 col-lg-9 col-lg-offset-3">
+<div class="well col-lg-10 col-lg-offset-1">
 {{ form_start(userForm, { 'attr': {'class': 'form-horizontal'} }) }}
     <div class="form-group">
         {{ form_label(userForm.username, null, { 'label_attr':  {

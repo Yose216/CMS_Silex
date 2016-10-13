@@ -32,19 +32,19 @@
                     {% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}
                         <li class="dropdown">
                         	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            	<span class="glyphicon glyphicon-user"></span> Welcome, {{ app.user.username }} <b class="caret"></b>
+                            	<span class="glyphicon glyphicon-user"></span> Bienvenue, {{ app.user.username }} <b class="caret"></b>
 							</a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('logout') }}">Log out</a></li>
+                                <li><a href="{{ path('logout') }}">Deconnexion</a></li>
                             </ul>
                         </li>
                         {% else %}
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-user"></span> Not connected <b class="caret"></b>
+                                <span class="glyphicon glyphicon-user"></span> Non connecté <b class="caret"></b>
 							</a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('login') }}">Log in</a></li>
+                                <li><a href="{{ path('login') }}">Connexion</a></li>
 								<li><a href="{{ path('inscription') }}">Inscription</a></li>
                             </ul>
                         </li>
@@ -55,18 +55,25 @@
 		
 		<div class="container-fluid">
 			<div class="followMe col-lg-3 pull-right col-xs-12">
-				<h3>SEARCH</h3>
+				<h3>RECHERCHE</h3>
 				<form>
 					<input type="search" placeholder="COMING SOON"/>
 					<input type="button" value="Search">
 				</form>
 				
-				<h3>FOLLOW ME</h3>
+				<h3>ARTICLES</h3>
+				{% for article in articles|slice(0, 5) %}
+					<p>
+						<a class="lastArticle" href="{{ path('article', { 'id': article.id }) }}">{{ article.title }}</a>
+					</p>
+				{% endfor %}
+				
+				<h3>SUIVEZ MOI</h3>
 				<div class="col-lg-offset-2 socialMedia">
-					<a href="https://github.com/Yose216" title="Twitter"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+					<a href="https://github.com/Yose216" title="Facebook"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
 					<a href="https://github.com/Yose216" title="Twitter"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
-					<a href="https://github.com/Yose216" title="Github"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
-					<a href="https://github.com/Yose216"><i class="fa fa-google-plus-square fa-3x" aria-hidden="true"></i></a>
+					<a href="https://github.com/Yose216" title="Instagram"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+					<a href="https://github.com/Yose216" title="Google +"><i class="fa fa-google-plus-square fa-3x" aria-hidden="true"></i></a>
 				</div>
 			</div>
 			

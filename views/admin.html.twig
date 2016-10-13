@@ -14,8 +14,8 @@
     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <ul class="nav nav-tabs nav-justified">
             <li class="active"><a href="#articles" data-toggle="tab">Articles</a></li>
-            <li><a href="#comments" data-toggle="tab">Comments</a></li>
-            <li><a href="#users" data-toggle="tab">Users</a></li>
+            <li><a href="#comments" data-toggle="tab">Commentaires</a></li>
+            <li><a href="#users" data-toggle="tab">Utilisateurs</a></li>
         </ul>
     </div>
 </div>
@@ -26,8 +26,8 @@
             <table class="table table-hover table-condensed">
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Content</th>
+                        <th>Titre</th>
+                        <th>Contenue</th>
                         <th></th>  <!-- Actions column -->
                     </tr>
                 </thead>
@@ -44,14 +44,14 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title" id="myModalLabel">Confirmation needed</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Confirmation requise</h4>
                                     </div>
                                     <div class="modal-body">
-                                        Do you really want to delete this article ?
+                                        Voulez-vous vraiment le supprimer ?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                        <a href="{{ path('admin_article_delete', { 'id': article.id }) }}" class="btn btn-danger">Confirm</a>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                        <a href="{{ path('admin_article_delete', { 'id': article.id }) }}" class="btn btn-danger">Confirmer</a>
                                     </div>
                                 </div><!-- /.modal-content -->
                             </div><!-- /.modal-dialog -->
@@ -62,9 +62,9 @@
             </table>
         </div>
         {% else %}
-        <div class="alert alert-warning">No articles found.</div>
+        <div class="alert alert-warning">Aucun article trouvé.</div>
         {% endif %}
-        <a href="{{ path('admin_article_add') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add article</button></a>
+        <a href="{{ path('admin_article_add') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un article</button></a>
     </div>
     <div class="tab-pane fade adminTable" id="comments">
         {% if comments %}
@@ -73,8 +73,8 @@
                 <thead>
                     <tr>
                         <th>Article</th>
-                        <th>Author</th>
-                        <th>Content</th>
+                        <th>Autheur</th>
+                        <th>Contenu</th>
                         <th></th>  <!-- Actions column -->
                     </tr>
                 </thead>
@@ -92,14 +92,14 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title" id="myModalLabel">Confirmation needed</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Confirmation requise</h4>
                                     </div>
                                     <div class="modal-body">
                                         Voulez-vous vraiment supprimez ce commentaire ?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                        <a href="{{ path('admin_comment_delete', { 'id': comment.id }) }}" class="btn btn-danger">Confirm</a>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                        <a href="{{ path('admin_comment_delete', { 'id': comment.id }) }}" class="btn btn-danger">Confirmer</a>
                                     </div>
                                 </div><!-- /.modal-content -->
                             </div><!-- /.modal-dialog -->
@@ -119,7 +119,7 @@
             <table class="table table-hover table-condensed">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Nom</th>
                         <th>Role</th>
                         <th></th>  <!-- Actions column -->
                     </tr>
@@ -143,14 +143,14 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title" id="myModalLabel">Confirmation needed</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Confirmation requise</h4>
                                     </div>
                                     <div class="modal-body">
-                                        Do you really want to delete this user ?
+                                        Voulez-vous vraiment supprimez cette utilisateur ?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                        <a href="{{ path('admin_user_delete', { 'id': user.id }) }}" class="btn btn-danger">Confirm</a>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                        <a href="{{ path('admin_user_delete', { 'id': user.id }) }}" class="btn btn-danger">Confirmer</a>
                                     </div>
                                 </div><!-- /.modal-content -->
                             </div><!-- /.modal-dialog -->
@@ -161,9 +161,9 @@
             </table>
         </div>
         {% else %}
-        <div class="alert alert-warning">No users found.</div>
+        <div class="alert alert-warning">Aucun utilisateur trouvé.</div>
         {% endif %}
-        <a href="{{ path('admin_user_add') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add user</button></a>
+        <a href="{{ path('admin_user_add') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter utilisateur</button></a>
     </div>
 </div></div>
 {% endblock %}

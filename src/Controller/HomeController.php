@@ -47,7 +47,7 @@ class HomeController {
         }
         $comments = $app['dao.comment']->findAllByArticle($id);
         return $app['twig']->render('article.html.twig', array(
-            'article' => $article, 
+            'article' => $article,
             'comments' => $comments,
             'commentForm' => $commentFormView));
     }

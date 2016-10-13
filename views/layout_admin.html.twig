@@ -32,19 +32,19 @@
                     {% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}
                         <li class="dropdown">
                         	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            	<span class="glyphicon glyphicon-user"></span> Welcome, {{ app.user.username }} <b class="caret"></b>
+                            	<span class="glyphicon glyphicon-user"></span> Bienvenue, {{ app.user.username }} <b class="caret"></b>
 							</a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('logout') }}">Log out</a></li>
+                                <li><a href="{{ path('logout') }}">Deconnexion</a></li>
                             </ul>
                         </li>
                         {% else %}
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-user"></span> Not connected <b class="caret"></b>
+                                <span class="glyphicon glyphicon-user"></span> Non connecté <b class="caret"></b>
 							</a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('login') }}">Log in</a></li>
+                                <li><a href="{{ path('login') }}">Connexion</a></li>
 								<li><a href="{{ path('inscription') }}">Inscription</a></li>
                             </ul>
                         </li>
@@ -55,11 +55,12 @@
 		
 		<div class="container-fluid">
 			<div id="content">{% block content %}{% endblock %}</div>
-	
-			<footer class="footer col-lg-12">
-				<p><a href="https://github.com/Yose216/CMS_Silex" target="_blank">CMS Youness</a> is a minimalistic CMS develop by Yose.</p>
-			</footer>
 		</div>
+		
+		<footer class="footer col-lg-12">
+			<p><a href="https://github.com/Yose216/CMS_Silex" target="_blank">CMS Youness©</a> is a minimalistic CMS develop by Yose. All right reserved 2016</p>
+		</footer>
+		
 	
 	<!-- jQuery -->
     <script src="{{ app.request.basepath }}/lib/jquery/jquery.min.js"></script>

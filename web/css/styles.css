@@ -91,15 +91,6 @@ header p {
 	padding-left: 3.1em;
 }
 
-.imgIndex {
-	padding-top: 15px!important;
-	padding-bottom: 15px!important;
-}
-
-.role {
-	display: none;
-}
-
 .followMe i {
 	padding-right: 10px;
 	color: #A81515;
@@ -109,3 +100,21 @@ header p {
 	color: dimgrey;
 }
 
+.imgIndex {
+	padding-top: 15px!important;
+	padding-bottom: 15px!important;
+}
+
+.role {
+	display: none;
+}
+
+.lastArticle {
+	text-decoration: none;
+	color: #A81515;
+}
+
+.lastArticle:hover {
+	text-decoration: none;
+	color: dimgrey;
+}
