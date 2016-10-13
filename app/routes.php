@@ -9,7 +9,8 @@ $app->match('/article/{id}', "cms\Controller\HomeController::articleAction")->bi
 // Login form
 $app->get('/login', "cms\Controller\HomeController::loginAction")->bind('login');
 
-$app->get('/inscription', "cms\Controller\HomeController::inscriptionAction")->bind('inscription');
+//inscription
+$app->match('/inscription', "cms\Controller\HomeController::inscriptionAction")->bind('inscription');
 
 // Admin zone
 $app->get('/admin', "cms\Controller\AdminController::indexAction")->bind('admin');

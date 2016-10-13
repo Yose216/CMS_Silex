@@ -66,7 +66,7 @@ class HomeController {
     }
 	
 	/**
-     * Add user controller.
+     * Add user.
      *
      * @param Request $request Incoming request
      * @param Application $app Silex application
@@ -85,7 +85,8 @@ class HomeController {
             // compute the encoded password
             $password = $encoder->encodePassword($plainPassword, $user->getSalt());
             $user->setPassword($password);
-//			$user->setRole('ROLE_USER');
+			$roles = 'ROLE_USER';
+			$user->setRole($roles);
             $app['dao.user']->save($user);
             $app['session']->getFlashBag()->add('success', 'The user was successfully created.');
         }

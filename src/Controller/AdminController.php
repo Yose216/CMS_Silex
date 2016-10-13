@@ -4,7 +4,6 @@ namespace cms\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-
 use cms\Domain\Article;
 use cms\Domain\User;
 use cms\Form\Type\ArticleType;

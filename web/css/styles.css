@@ -5,9 +5,7 @@ body {
 header {
 	padding: 30px 30px 15px 15px;
 	background-image: url('../images/head.png');
-/*	background-position: top;*/
 	background-size: cover;
-/*	background-repeat: no-repeat;*/
 }
 
 header h1 {
@@ -96,5 +94,18 @@ header p {
 .imgIndex {
 	padding-top: 15px!important;
 	padding-bottom: 15px!important;
+}
+
+.role {
+	display: none;
+}
+
+.followMe i {
+	padding-right: 10px;
+	color: #A81515;
+}
+
+.followMe i:hover {
+	color: dimgrey;
 }
 
