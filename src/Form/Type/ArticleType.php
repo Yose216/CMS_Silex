@@ -4,6 +4,7 @@ namespace cms\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+//use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class ArticleType extends AbstractType
 {
@@ -14,6 +15,9 @@ class ArticleType extends AbstractType
             ->add('content', 'textarea')
 			->add('image', 'file', array(
                     'data_class' => null
+			))
+			->add('dateArt','date', array(
+    			'widget' => 'choice'
 			));
     }
 

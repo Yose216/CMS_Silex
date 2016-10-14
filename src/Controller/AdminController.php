@@ -47,6 +47,8 @@ class AdminController {
 				$article->setImage($filename);
 
 				$message = 'File was successfully uploaded!';
+				
+				//$app['monolog']->addError(get_class($article->getDateArt()));
 			}
     	}
         if ($articleForm->isSubmitted() && $articleForm->isValid()) {
@@ -67,6 +69,7 @@ class AdminController {
      */
     public function editArticleAction($id, Request $request, Application $app) {
         $article = $app['dao.article']->find($id);
+		$app['monolog']->addError(var_dump($article->getDateArt()));
         $articleForm = $app['form.factory']->create(new ArticleType(), $article);
         $articleForm->handleRequest($request);
 		if ($request->isMethod('POST')) {

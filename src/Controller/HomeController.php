@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use cms\Domain\Comment;
 use cms\Form\Type\CommentType;
 use cms\Domain\User;
-use cms\Form\Type\UserType;
+use cms\Form\Type\UserType2;
 
 class HomeController {
 
@@ -21,6 +21,7 @@ class HomeController {
         return $app['twig']->render('index.html.twig', array('articles' => $articles));
     }
 
+
     /**
      * Article details controller.
      *
@@ -30,6 +31,7 @@ class HomeController {
      */
     public function articleAction($id, Request $request, Application $app) {
         $article = $app['dao.article']->find($id);
+		$articles = $app['dao.article']->findAll();
         $commentFormView = null;
         if ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {
             // A user is fully authenticated : he can add comments
@@ -47,6 +49,7 @@ class HomeController {
         }
         $comments = $app['dao.comment']->findAllByArticle($id);
         return $app['twig']->render('article.html.twig', array(
+			'articles' => $articles,
             'article' => $article,
             'comments' => $comments,
             'commentForm' => $commentFormView));
@@ -73,7 +76,7 @@ class HomeController {
      */
 	 public function inscriptionAction(Request $request, Application $app) {
         $user = new User();
-        $userForm = $app['form.factory']->create(new UserType(), $user);
+        $userForm = $app['form.factory']->create(new UserType2(), $user);
         $userForm->handleRequest($request);
         if ($userForm->isSubmitted() && $userForm->isValid()) {
             // generate a random salt value
@@ -85,8 +88,8 @@ class HomeController {
             // compute the encoded password
             $password = $encoder->encodePassword($plainPassword, $user->getSalt());
             $user->setPassword($password);
-			$roles = 'ROLE_USER';
-			$user->setRole($roles);
+//			$roles = 'ROLE_USER';
+			$user->setRole('ROLE_USER');
             $app['dao.user']->save($user);
             $app['session']->getFlashBag()->add('success', 'The user was successfully created.');
         }

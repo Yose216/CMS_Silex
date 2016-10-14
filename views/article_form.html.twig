@@ -46,6 +46,15 @@
 			</div>
 		</div>
 		<div class="form-group">
+			{{ form_label(articleForm.dateArt, null, { 'label_attr':  {
+				'class': 'col-sm-4 control-label'
+			}}) }}
+			<div class="col-sm-6">
+				{{ form_errors(articleForm.dateArt) }}
+				{{ form_widget(articleForm.dateArt) }}
+			</div>
+		</div>
+		<div class="form-group">
 			<div class="col-sm-offset-4 col-sm-3">
 				<input type="submit" class="btn btn-primary" value="Save" />
 			</div>

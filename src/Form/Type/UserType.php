@@ -22,6 +22,7 @@ class UserType extends AbstractType
                 'choices' => array('ROLE_ADMIN' => 'Admin', 'ROLE_USER' => 'User')
             ));
     }
+	
 
     public function getName()
     {

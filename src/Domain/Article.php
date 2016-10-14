@@ -33,6 +33,14 @@ class Article
      * @var string
      */
     private $image;
+	
+	/**
+     * Article date.
+     *
+     * @var string
+     */
+    private $dateArt;
+	
 
     public function getId() {
         return $this->id;
@@ -64,6 +72,21 @@ class Article
 	
     public function setImage($image) {
         $this->image = $image;
+    }
+	
+	public function getDateArt() {
+		
+		if(is_string($this->dateArt)){
+			$this->dateArt = \DateTime::createFromFormat('Y-m-d H:i:s', $this->dateArt);
+		}
+        return $this->dateArt;
+    }
+	
+    public function setDateArt($dateArt) {	
+		if(! is_string($dateArt)){
+			$dateArt = $dateArt->format('Y-m-d H:i:s');
+		}
+        $this->dateArt = $dateArt;
     }
 
 }

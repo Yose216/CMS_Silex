@@ -36,6 +36,7 @@ class ArticleDAO extends DAO
         $article->setTitle($row['art_title']);
         $article->setContent($row['art_content']);
 		$article->setImage($row['art_image']);
+		$article->setDateArt($row['art_date']);
         return $article;
     }
 	
@@ -60,6 +61,7 @@ class ArticleDAO extends DAO
             'art_title' => $article->getTitle(),
             'art_content' => $article->getContent(),
 			'art_image' => $article->getImage(),
+			'art_date' => $article->getDateArt()->format('Y-m-d H:i:s'),
             );
 
         if ($article->getId()) {

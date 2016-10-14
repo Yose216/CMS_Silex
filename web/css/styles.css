@@ -118,3 +118,7 @@ header p {
 	text-decoration: none;
 	color: dimgrey;
 }
+
+.date {
+	color: dimgrey!important;
+}
